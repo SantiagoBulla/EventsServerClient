@@ -1,5 +1,6 @@
-import express from "express";
+import express, { json } from "express";
 import morgan from "morgan";
+import { getConnection } from "./src/config/database.js"
 
 //create express application
 const app = express();
@@ -12,7 +13,7 @@ app.use(express.json()); //-> Allows server interact and understand json data fr
 //routes
 
 //project index route
-app.get('/api', (req, res) => {
+app.get('/api', async (req, res) => {
     res.json({ message: "Hello World" });
 });
 
