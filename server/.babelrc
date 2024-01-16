@@ -1,0 +1,5 @@
+//configuracion del transcompilador de babel para pasar js moderno a uno estandar 
+
+{
+    "presets": ["@babel/preset-env"]//para que babel detecte el codigo js y los transforme
+}
