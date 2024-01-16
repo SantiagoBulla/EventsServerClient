@@ -9,18 +9,18 @@ rolDescription  varchar(25) not null
 
 create table user (
 idUser varchar(25) primary key, 
-name varchar(50) not null,
-lastname varchar(50) not null,
-email varchar(50) not null,
-phone varchar(50),
-status boolean not null,
+userNames varchar(50) not null,
+userSurnames varchar(50) not null,
+userEmail varchar(50) not null,
+userPhone varchar(50),
+userStatus boolean not null,
 idRolFK int,
 foreign key (idRolFk) references rol (idRol) on update cascade on delete set null
 );
 
 create table events (
 idEvent int primary key auto_increment,
-nameEvent varchar(20) not null,
+eventName varchar(20) not null,
 eventDescription varchar(50) not null,
 eventDate date not null, 
 idUserFK varchar(50),
