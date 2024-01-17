@@ -1,10 +1,10 @@
 import './App.css';
-import EventList from './components/container/eventList/event_list';
+import EventPage from './pages/events/EventPage';
 
 function App() {
   return (
     <div className="App">
-      <EventList />
+      <EventPage />
     </div>
   );
 }

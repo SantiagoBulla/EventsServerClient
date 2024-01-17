@@ -1,0 +1,84 @@
+.event-form{
+    margin: 20px 0px;
+    width: 35%;
+    height: 40%;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(175, 169, 169, 0.3);
+}
+
+.event-form form{    
+    width: 100%;
+    height: 80%;
+    background-color: whitesmoke;
+    border-radius: 30px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-form-fields{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.event-form-fields input{
+    width: 90%;
+    height: 15%;
+    border: 2px solid #00abfe;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+  
+
+.event-form-fields .btn-add-modal{
+    width: 90%;
+    height: 20%;
+    border: 2px solid #00abfe;
+    background-color: #50a0c8;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.event-form .btn-close-modal{
+    width: 25%;
+    height: 20%;
+    border: darkred;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.header-add-modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-add-modal h2{
+    margin-left: 3rem;
+}
+
+/*modal*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
