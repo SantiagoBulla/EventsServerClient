@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../event/event.css'
 
-const Event = () => {
+const Event = ({ eventData }) => {
+
+    const [event, setEvent] = useState(eventData);
+
     return (
         <div>
             <div className='event'>
                 <div className="countdown">
-                    <span className="days">9</span>
+                    <span className="days">{event.countdown}</span>
                     <span className="text">dias para</span>
                 </div>
-                <p className='name-event'>Happy Birthday Happy Birthday Happy Birthday Happy Birthday</p>
-                <p className='date-event'>2024-02-16</p>
+                <p className='name-event'>{event.eventName}</p>
+                <p className='date-event'>{event.eventDate}</p>
                 <button className='delete-event'>DELETE</button>
             </div>
         </div>

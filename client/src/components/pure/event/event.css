@@ -50,12 +50,17 @@
 }
 
 .delete-event{
-    background-color: transparent;
     border: none;
     width: 12%;
     height: 50%;
     border-radius: 10px;
     font-size: 1.2rem;
     background-color: #50a0c8;
-    color: rgb(27, 27, 27);
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.delete-event:hover{
+    background-color: tomato;
+    color: white;
 }
