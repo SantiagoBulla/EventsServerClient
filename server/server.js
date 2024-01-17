@@ -1,6 +1,6 @@
-import express, { json } from "express";
+import express from "express";
 import morgan from "morgan";
-import { getConnection } from "./src/config/database.js"
+import eventsRouter from "./src/routes/events.router.js";
 
 //create express application
 const app = express();
@@ -11,6 +11,7 @@ app.use(morgan("dev")); //-> show the http petitions only in dev mode
 app.use(express.json()); //-> Allows server interact and understand json data from client side
 
 //routes
+app.use('/api/events/', eventsRouter);
 
 //project index route
 app.get('/api', async (req, res) => {

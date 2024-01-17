@@ -30,3 +30,10 @@ foreign key (idUserFk) references user (idUser) on update cascade on delete casc
 -- rol's initial data
 insert into rol values (1, 'Administrator'), (2,'standartUser');
 select * from rol;
+
+-- user's initial data
+insert into user values ('12345','Walter','White','wallbb@muvi.in','675467653',true,1);
+
+-- events's initial data
+insert into events values (null,'Happy birthday','A very special day','2024-02-16','12345');
+insert into events values (null,'Animal party','The best party ever','2024-08-01','12345');
