@@ -1,0 +1,12 @@
+.event-list{
+    width: 60rem;
+    height: 35rem;
+    border-radius: 25px;
+    padding: 0px 15px;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.title-event-list{ 
+    color: #36ae62;
+}

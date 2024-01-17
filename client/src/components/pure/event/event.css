@@ -1,0 +1,61 @@
+.event{
+    height: 6rem;
+    border: 2px solid #00abfe;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.countdown{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 80%;
+}
+
+.countdown .days{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #36ae62;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.countdown .text{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.name-event{
+    width: 35%;
+    height: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.date-event{
+    width: 15%;
+    height: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.delete-event{
+    background-color: transparent;
+    border: none;
+    width: 12%;
+    height: 50%;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background-color: #50a0c8;
+    color: rgb(27, 27, 27);
+}
