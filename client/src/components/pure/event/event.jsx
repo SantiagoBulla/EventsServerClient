@@ -3,7 +3,7 @@ import '../event/event.css'
 
 const Event = ({ eventData, deleteEvent }) => {
     // destructuring syntax to event data
-    const { countdown, eventName, eventDate } = eventData;
+    const { idEvent, countdown, eventName, eventDate } = eventData;
 
     //control variables
     let countdownText = countdown;
@@ -43,7 +43,7 @@ const Event = ({ eventData, deleteEvent }) => {
                 </div>
                 <p className='name-event'>{eventName}</p>
                 <p className='date-event'>{eventDate}</p>
-                <button onClick={deleteEvent} className='delete-event'>DELETE</button>
+                <button onClick={() => deleteEvent(idEvent)} className='delete-event'>DELETE</button>
             </div>
         </div>
     );

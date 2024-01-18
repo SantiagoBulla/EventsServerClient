@@ -15,7 +15,7 @@ const getAllEventsFromDB = async () => {
 }
 
 /**
- * 
+ * Inserting a new event to the database
  * @param {object} eventData 
  * @returns the database response to an insert request or an error in case of failure
  */
@@ -29,7 +29,23 @@ const addEventToDB = async (eventData) => {
     }
 }
 
+/**
+ * Deleting a specific event from the database 
+ * @param {int} idEvent 
+ * @returns the database response to an deletion request or an error in case of failure
+ */
+const deleteEventFromDB = async (idEvent) => {
+    try {
+        const connection = getConnection();
+        const response = (await connection).query('delete from events where idEvent = ?', idEvent);
+        return response;
+    } catch (error) {
+        throw new Error(`Error while deleting an event to the database ${error.message}`);
+    }
+}
+
 export const dbMethods = {
     getAllEventsFromDB,
     addEventToDB,
+    deleteEventFromDB
 }

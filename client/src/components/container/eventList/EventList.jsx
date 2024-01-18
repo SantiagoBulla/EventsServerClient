@@ -41,12 +41,18 @@ const EventList = () => {
             alert(response.data.message);
             fetchData();
         } catch (error) {
-            console.log(error);
+            return new Error(error.message);
         }
     }
 
-    const deleteEvent = () => {
-        console.log('delete was click');
+    const deleteEvent = async (idEvent) => {
+        try {
+            const response = await eventServices.deleteEventByID(idEvent);
+            alert(response.data.message);
+            fetchData();
+        } catch (error) {
+            return new Error(error.message);
+        }
     }
 
     // manage modal window actions

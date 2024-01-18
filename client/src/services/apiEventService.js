@@ -30,7 +30,23 @@ const addNewEvent = async (data) => {
         });
 }
 
+/**
+ * Receives the event's id and sends a deletion request to the API
+ * @param {int} idEvent 
+ * @returns the  transaction's response
+ */
+const deleteEventByID = async (idEvent) => {
+    return axios.delete(`http://localhost:9000/api/events/${idEvent}`)
+        .then(response => {
+            return response
+        })
+        .catch(error => {
+            return error;
+        });
+}
+
 export const eventServices = {
     getAllEvents,
     addNewEvent,
+    deleteEventByID,
 }

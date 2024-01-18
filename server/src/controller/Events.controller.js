@@ -47,7 +47,21 @@ const addEvent = async (req, res) => {
     }
 }
 
+/**
+ * receives the event id via url and deletes the event from the database
+ */
+const deleteEvent = async (req, res) => {
+    try {
+        const { id : idEvent } = req.params;
+        const response = await db.deleteEventFromDB(idEvent);
+        res.json({ message: 'Event successfully deleted', details: response });
+    } catch (error) {
+        res.json({ message: 'error in delete', error: error.message });
+    }
+}
+
 export const methods = {
     getAllEvents,
-    addEvent
+    addEvent,
+    deleteEvent,
 }
