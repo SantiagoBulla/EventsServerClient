@@ -1,4 +1,4 @@
-.event{
+.event {
     height: 6.5rem;
     border: 2px solid #00abfe;
     display: flex;
@@ -8,14 +8,14 @@
     margin: 20px 0px;
 }
 
-.countdown{
+.countdown {
     display: flex;
     flex-direction: column;
     width: 10%;
     height: 80%;
 }
 
-.countdown .days{
+.countdown .days {
     font-size: 2.5rem;
     font-weight: bold;
     color: #36ae62;
@@ -24,32 +24,55 @@
     justify-content: center;
     align-items: center;
 }
-.countdown .text{
+
+.days-text-expired {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 15px;
+    color: red;
+}
+
+.days-text-now {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 15px;
+    color: orange;
+}
+
+.countdown .text {
     height: 40%;
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
 }
 
-.name-event{
+.name-event {
     width: 35%;
     height: 50%;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
 }
 
-.date-event{
+.date-event {
     width: 15%;
     height: 50%;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
 }
 
-.delete-event{
+.delete-event {
     border: none;
     width: 12%;
     height: 50%;
@@ -60,7 +83,7 @@
     cursor: pointer;
 }
 
-.delete-event:hover{
+.delete-event:hover {
     background-color: tomato;
     color: white;
 }

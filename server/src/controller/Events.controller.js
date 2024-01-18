@@ -3,7 +3,6 @@ import { dbMethods as db } from "../database/events_database.js";
 /**
  * send all events with the countdown for their fulfillment
  */
-// TODO return 0 when the event has expired
 const getAllEvents = async (req, res) => {
     try {
         const events = await db.getAllEventsFromDB(); //get the response from db
@@ -18,7 +17,7 @@ const getAllEvents = async (req, res) => {
             events[i] = {
                 ...event,
                 eventDate: eventDate.toISOString().split('T')[0],
-                countdown: dateDifference
+                countdown: dateDifference + 1
             };
         }
         res.json(events);
@@ -27,7 +26,6 @@ const getAllEvents = async (req, res) => {
     }
 }
 
-// TODO validate the date so as not to allow dates lower than the actual date
 const addEvent = async (req, res) => {
     try {
         // fetches event data from the client request and performs destructuring  sintaxis 
@@ -42,13 +40,10 @@ const addEvent = async (req, res) => {
         // return a message to the client
         const successMessage = 'Event added successfully';
         res.json({ message: successMessage, details: response });
-
     } catch (error) {
-        if (error instanceof DatabaseValidationError) {
-            res.status(400).json({ error: 'Validation error in database', details: error.message });
-        } else {
-            res.status(500).json({ error: 'Internal Server Error', details: error.message });
-        }
+        console.log('error');
+        console.log(error.message);
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 }
 

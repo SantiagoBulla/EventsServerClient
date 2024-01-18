@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import eventsRouter from "./src/routes/events.router.js";
 
 //create express application
@@ -9,6 +10,7 @@ const PORT = 9000;
 //middleware [intermediate actions beetwen request and response]
 app.use(morgan("dev")); //-> show the http petitions only in dev mode
 app.use(express.json()); //-> Allows server interact and understand json data from client side
+app.use(cors()); //-> allows the client to interact with the api access point 
 
 //routes
 app.use('/api/events/', eventsRouter);
