@@ -13,6 +13,7 @@ userNames varchar(50) not null,
 userSurnames varchar(50) not null,
 userEmail varchar(50) not null,
 userPhone varchar(50),
+userPassword varchar(50) not null,
 userStatus boolean not null,
 idRolFK int,
 foreign key (idRolFk) references rol (idRol) on update cascade on delete set null
@@ -32,7 +33,7 @@ insert into rol values (1, 'Administrator'), (2,'standartUser');
 select * from rol;
 
 -- user's initial data
-insert into user values ('12345','Walter','White','wallbb@muvi.in','675467653',true,1);
+insert into user values ('12345','Walter','White','wallbb@muvi.in','675467653','password123',true,1);
 
 -- events's initial data
 insert into events values (null,'Happy birthday','A very special day','2024-02-16','12345');
