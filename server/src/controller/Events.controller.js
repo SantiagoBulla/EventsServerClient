@@ -1,4 +1,4 @@
-import { dbMethods as db } from "../database/events_database.js";
+    import { dbMethods as db } from "../database/events_database.js";
 
 /**
  * send all events with the countdown for their fulfillment

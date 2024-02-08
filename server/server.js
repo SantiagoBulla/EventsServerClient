@@ -1,7 +1,8 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import eventsRouter from "./src/routes/events.router.js";
+import eventsRouter from "./src/routes/Events.router.js";
+import authRouter from "./src/routes/Auth.router.js";
 
 //create express application
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors()); //-> allows the client to interact with the api access point
 
 //routes
 app.use('/api/events/', eventsRouter);
+app.use('/api/auth/', authRouter);
 
 //project index route
 app.get('/api', async (req, res) => {
