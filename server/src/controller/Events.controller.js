@@ -1,10 +1,18 @@
-    import { dbMethods as db } from "../database/events_database.js";
+import { dbMethods as db } from "../database/events_database.js";
+import { validateToken } from "./Auth.controller.js";
 
 /**
  * send all events with the countdown for their fulfillment
  */
 const getAllEvents = async (req, res) => {
     try {
+        const token = req.headers.authorization.split(" ")[1];
+        const validation = validateToken(token);
+
+        if (!validation.value) {
+            return res.status(401).json({ error: validation.message });
+        }
+
         const events = await db.getAllEventsFromDB(); //get the response from db
         const date = new Date();
         // iterates each event and adds the countdown 
@@ -25,6 +33,8 @@ const getAllEvents = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
+
+// TODO -> agregate the token validation to the next methods 
 
 const addEvent = async (req, res) => {
     try {
@@ -52,7 +62,7 @@ const addEvent = async (req, res) => {
  */
 const deleteEvent = async (req, res) => {
     try {
-        const { id : idEvent } = req.params;
+        const { id: idEvent } = req.params;
         const response = await db.deleteEventFromDB(idEvent);
         res.json({ message: 'Event successfully deleted', details: response });
     } catch (error) {

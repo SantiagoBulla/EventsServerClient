@@ -18,7 +18,7 @@ app.use('/api/events/', eventsRouter);
 app.use('/api/auth/', authRouter);
 
 //project index route
-app.get('/api', async (req, res) => {
+app.post('/api', async (req, res) => {
     res.json({ message: "Hello World" });
 });
 

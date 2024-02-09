@@ -38,3 +38,5 @@ insert into user values ('12345','Walter','White','wallbb@muvi.in','675467653','
 -- events's initial data
 insert into events values (null,'Happy birthday','A very special day','2024-02-16','12345');
 insert into events values (null,'Animal party','The best party ever','2024-08-01','12345');
+
+select * from user where useremail = 'wallbb@muvi.in' and userpassword = 'password123';
