@@ -4,8 +4,6 @@ import { dbMethods as db } from "../database/auth.database.js";
 const secret = process.env.JWT_SECRET_KEY || 'SECRET_KEY';
 
 const login = async (req, res) => {
-    console.log('entro');
-    console.log(req.body);
     try {
         // validation from db , return the user id and the surnames
         const { user, password } = req.body;
