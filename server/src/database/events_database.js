@@ -15,6 +15,21 @@ const getAllEventsFromDB = async () => {
 }
 
 /**
+ * 
+ * @returns the database response with the events of the user or an error in case of request failure
+ */
+const getAllEventsByUserFromDB = async (id) => {
+    try {
+        console.log(`El id que llega a la bd es ${id}`);
+        const connection = await getConnection();
+        const data = await connection.query('select * from events where iduserfk = ?', id);
+        return data;
+    } catch (error) {
+        throw new Error(`Error fetching events from the database: ${error}`);
+    }
+}
+
+/**
  * Inserting a new event to the database
  * @param {object} eventData 
  * @returns the database response to an insert request or an error in case of failure
@@ -47,5 +62,6 @@ const deleteEventFromDB = async (idEvent) => {
 export const dbMethods = {
     getAllEventsFromDB,
     addEventToDB,
-    deleteEventFromDB
+    deleteEventFromDB,
+    getAllEventsByUserFromDB
 }

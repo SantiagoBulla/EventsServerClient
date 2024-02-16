@@ -34,6 +34,37 @@ const getAllEvents = async (req, res) => {
     }
 }
 
+const getAllEventsByUser = async (req, res) => {
+    try {
+        const { iduser } = req.params;
+        const token = req.headers.authorization.split(" ")[1];
+        const validation = validateToken(token);
+
+        if (!validation.value) {
+            return res.status(401).json({ error: validation.message });
+        }
+
+        const events = await db.getAllEventsByUserFromDB(iduser); //get the response from db
+        const date = new Date();
+        // iterates each event and adds the countdown 
+        for (let i = 0; i < events.length; i++) {
+            const event = events[i]; //store the actual event
+            const eventDate = new Date(event.eventDate); // get the date for the event
+            // calculates the differece beetwen the event date and the actual date to get the countdown
+            const dateDifference = Math.floor((eventDate - date) / (1000 * 60 * 60 * 24));
+            //reassigns the value of the event date and adds the countdown of the event
+            events[i] = {
+                ...event,
+                eventDate: eventDate.toISOString().split('T')[0],
+                countdown: dateDifference + 1
+            };
+        }
+        res.json(events);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 // TODO -> agregate the token validation to the next methods 
 
 const addEvent = async (req, res) => {
@@ -74,4 +105,5 @@ export const methods = {
     getAllEvents,
     addEvent,
     deleteEvent,
+    getAllEventsByUser
 }
