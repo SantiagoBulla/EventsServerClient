@@ -65,10 +65,16 @@ const getAllEventsByUser = async (req, res) => {
     }
 }
 
-// TODO -> agregate the token validation to the next methods 
-
 const addEvent = async (req, res) => {
     try {
+        // Gets the token and validates with the server information
+        const token = req.headers.authorization.split(" ")[1];
+        const validation = validateToken(token);
+
+        if (!validation.value) {
+            return res.status(401).json({ error: validation.message });
+        }
+
         // fetches event data from the client request and performs destructuring  sintaxis 
         const { eventName, eventDescription, eventDate, idUserFK } = req.body;
         // Data validation
@@ -82,15 +88,15 @@ const addEvent = async (req, res) => {
         const successMessage = 'Event added successfully';
         res.json({ message: successMessage, details: response });
     } catch (error) {
-        console.log('error');
-        console.log(error.message);
         res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 }
 
+// TODO -> agregate the token validation to the next methods 
+
 /**
  * receives the event id via url and deletes the event from the database
- */
+*/
 const deleteEvent = async (req, res) => {
     try {
         const { id: idEvent } = req.params;
